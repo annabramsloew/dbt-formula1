@@ -1,0 +1,21 @@
+
+version: 2
+
+models:
+    - name: 
+      description:
+      columns:
+          - name: 
+            description: 
+            tests:
+                - unique
+                - not_null
+
+    - name: 
+      description: 
+      columns:
+          - name: 
+            description: 
+            tests:
+                - unique
+                - not_null
