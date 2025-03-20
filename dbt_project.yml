@@ -25,7 +25,7 @@ models:
   my_f1_demo:
     # Applies to all files under models/x/
     staging:
-      +materialized: table
+      +materialized: view
     intermediate:
       +materialized: ephemeral
     marts:
