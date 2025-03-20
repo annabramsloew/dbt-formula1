@@ -93,3 +93,41 @@ models:
           description:  grandprix from which the results are
         - name: race_date
           description: race_date on which the results were recorded
+
+    - name: fct_laptimes
+      description: Contains lap times for each driver in each race
+      columns:
+        - name: race_id
+          description: unique identifier for each race
+        - name: driver_id
+          description: unique identifier for each driver
+        - name: lap
+          description: lap number for a given driver in a race 
+        - name: final_rank
+          description: a driver's final rank in a given race
+        - name: lap_time
+          description: each lap's duration (lap time)
+        - name: lap_time_millisec
+          description: lap time in milliseconds
+    
+    - name: fct_fastest_lap
+      description: Contains all fastests laps for every race, with corresponding info on which driver achieved it.
+      columns:
+        - name: race_id
+          description: unique identifier for each race
+          tests:
+              - unique
+        - name: race_date
+          description: date of race
+        - name: grandprix_name
+          description: name of grandprix
+        - name: driver_id
+          description: id of driver with fastest lap in a given race
+        - name: driver_code
+          description: letter code of driver with fastest lap in a given race
+        - name: lap
+          description: lap no. of fastest lap, ie. on which lap did the fastest drive happen
+        - name: final_rank
+          description: the final rank of the driver that drove the fastest lap
+        - name: lap_time
+          description: fastest lap time in milliseconds
