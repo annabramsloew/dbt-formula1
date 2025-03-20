@@ -1,3 +1,3 @@
-# formula1
+# F1 Data Pipeline
 
-- kaggle data set: https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020
+Data set: https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020
