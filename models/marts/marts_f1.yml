@@ -56,7 +56,7 @@ models:
         - name: constructor_nationality
           description: The nationality of the constructor team
     
-    - name: fct_results
+    - name: fct_race_results
       description: Intermediate table that combines race results with status information, resulting in a table of results with status descriptions.
       columns:
         - name: result_id
