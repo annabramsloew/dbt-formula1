@@ -1,0 +1,40 @@
+version: 2
+
+models:
+    - name: int_results
+      description: Intermediate table that combines race results with status information, resulting in a table of results with status descriptions.
+      columns:
+        - name: result_id
+          description: unique identifier for each result - a unique combination of race id, driver id and constructor id.
+        - name: race_id
+          description: a unique identfier for each F1 race
+        - name: driver_id
+          description: unique identifier for each driver
+        - name: constructor_id
+          description: unique identifier for each constructor
+        - name: starting_grid_pos
+          description: grid position which a driver starts in for a given race
+        - name: final_position
+          description: final position (1-10) for a driver in a given race (position beyon 10 is null)
+        - name: final_rank
+          description: final rank for every driver in a given race
+        - name: points
+          description: points earned by a driver in a given race
+        - name: laps
+          description: number of laps driven by a driver in a given race
+        - name: race_time
+          description: race duration converted to minutes
+        - name: fastestlap_no
+          description: the number of a driver's fastest lap
+        - name: fastestlap_time
+          description: the duration of a driver's fastest lap
+        - name: fastestlap_speed
+          description: a driver's top speed of fastest lap
+        - name: status_id
+          description: the id of the status of a driver's result (fx "finished", "disqualified" etc)
+        - name: status_description
+          description: the description of the status, ie. a finished a race or any events that have happened
+        - name: grandprix_name
+          description:  grandprix from which the results are
+        - name: race_date
+          description: race_date on which the results were recorded
