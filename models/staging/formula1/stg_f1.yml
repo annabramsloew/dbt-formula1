@@ -1,0 +1,171 @@
+
+version: 2
+
+models:
+    - name: stg_f1_circuits
+      description: Contains all circuits where F1 races take place
+      columns:
+        - name: circuit_id
+          description: unique identifier for each circuit
+          tests:
+              - unique
+              - not_null
+        - name: circuit_short_name
+          description: a reference name (short version) for each circuit
+          tests:
+              - unique
+        - name: circuit_name
+          description: a circuit's full name
+          tests:
+              - unique
+              - not_null
+        - name: city
+          description: the city in which the circuit is
+        - name: country
+          description: the country in which the circuit is
+        - name: latitude
+          description: the circuit's latitude
+        - name: longitude
+          description: the circuit's longitude
+        - name: altitude
+          description: the circuit's altitude
+
+    - name: stg_f1_constructors
+      description: Contains all constructors in F1
+      columns:
+        - name: constructor_id
+          description: unique identifier for each constructor
+          tests:
+              - unique
+              - not_null
+        - name: constructor_short_name
+          description: a reference name (short version) for each constructor
+          tests:
+              - unique
+        - name: constructor_name
+          description: The constructor's actual name
+          tests:
+              - unique
+              - not_null
+        - name: constructor_nationality
+          description: The nationality of the constructor team
+    
+    - name: stg_f1_drivers
+      description: Contains all drivers that have participated in F1
+      columns:
+        - name: driver_id
+          description: unique identifier for each driver
+          tests:
+              - unique
+              - not_null
+        - name: driver_ref_name
+          description: a shorter reference name (nickname) for each driver
+          tests:
+              - unique
+        - name: driver_number
+          description: the number chosen by each driver to driver under
+        - name: driver_code
+          description: the driver code created based on a driver's name
+        - name: forename
+          description: a driver's first name
+        - name: surname
+          description: a driver's last name
+        - name: dob
+          description: a driver's date of birth
+        - name: driver_nationality
+          description: a driver's nationality (chosen nationality if driver has dual citizenship)
+    
+    - name: stg_f1_results
+      description: Contains all race results, including starting positions and final ranks
+      columns:
+        - name: result_id
+          description: unique identifier for each result - a unique combination of race id, driver id and constructor id.
+          tests:
+              - not_null
+              - unique
+        - name: race_id
+          description: a unique identfier for each F1 race
+          tests:
+              - not_null
+        - name: driver_id
+          description: unique identifier for each driver
+          tests:
+              - not_null
+        - name: constructor_id
+          description: unique identifier for each constructor
+          tests:
+              - not_null 
+        - name: starting_grid_pos
+          description: grid position which a driver starts in for a given race
+        - name: final_position
+          description: final position (1-10) for a driver in a given race (position beyon 10 is null)
+        - name: final_rank
+          description: final rank for every driver in a given race
+        - name: points
+          description: points earned by a driver in a given race
+        - name: laps
+          description: number of laps driven by a driver in a given race
+        - name: race_time_millisec
+          description: race duration in milliseconds
+        - name: fastestlap_no
+          description: the number of a driver's fastest lap
+        - name: fastestlap_time
+          description: the duration of a driver's fastest lap
+        - name: fastestlap_speed
+          description: a driver's top speed of fastest lap
+        - name: status_id
+          description: the id of the status of a driver's result (fx "finished", "disqualified" etc)
+
+    - name: stg_f1_laptimes
+      description: Contains lap times for each driver in each race
+      columns:
+        - name: race_id
+          description: unique identifier for each race
+          tests:
+              - not_null
+        - name: driver_id
+          description: unique identifier for each driver
+          tests:
+              - not_null 
+        - name: lap
+          description: lap number for a given driver in a race 
+        - name: final_rank
+          description: a driver's final rank in a given race
+        - name: lap_time
+          description: each lap's duration (lap time)
+        - name: lap_time_millisec
+          description: lap time in milliseconds
+    
+    - name: stg_f1_races
+      description: Contains all F1 races across years
+      columns:
+        - name: race_id
+          description: a unique identfier for each F1 race
+          tests:
+              - not_null
+              - unique
+        - name: race_year
+          description: year of race
+        - name: race_number
+          description: number of race it is in current season
+        - name: circuit_id
+          description: unique identifier for each circuit
+          tests:
+              - not_null
+        - name: grandpix_name
+          description: full name of race (grandprix)
+        - name: race_date
+          description: date of race
+        - name: time
+          description: local time at race start
+    
+    - name: stg_f1_status
+      description: Contains unique statuses and corresponding id's of events that might occur during a race
+      columns:
+        - name: status_id
+          description: the id of the status of a driver's result (fx "finished", "disqualified" etc)
+          tests:
+              - unique
+              - not_null
+        - name: status_description
+          description: the description of the status, ie. a finished a race or any events that have happened
