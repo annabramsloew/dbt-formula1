@@ -1,0 +1,12 @@
+version: 2
+
+macros:
+  - name: milliseconds_to_minutes
+    description: A macro to convert milliseconds to minutes
+    arguments:
+      - name: column_name
+        type: string
+        description: The name of the column we are converting
+      - name: precision
+        type: integer
+        description: Number of decimal places for conversion. Defaults to 2.
