@@ -1,0 +1,12 @@
+version: 2
+data_tests:
+  - name: test_driver_per_team_per_race
+    description: >
+      Each F1 one team has two drivers, so the number of drivers per race should be no greather than 2.
+      Therefore return records where total number of drivers per team > 2 make the test fail.
+      NB: this test only checks in the hybrid era (2014+)
+
+  - name: test_one_driver_obs_per_race
+    description: >
+      Each driver can only finish a race once. Thus, each driver should only have one result observation per race.
+      Therefore return records where total number of results per driver > 1 make the test fail.
